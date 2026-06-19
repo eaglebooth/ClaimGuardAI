@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #08090d;
+  --panel: rgba(17, 19, 28, 0.78);
+  --panel-strong: rgba(25, 28, 40, 0.92);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #f7f5ef;
+  --muted: #9ea3b4;
+  --lime: #d9ff63;
+  --mint: #74ffd0;
+  --coral: #ff7a59;
+  --blue: #78a7ff;
+  --violet: #b59cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(217, 255, 99, 0.22), transparent 28rem),
+    radial-gradient(circle at 78% 10%, rgba(116, 255, 208, 0.16), transparent 24rem),
+    linear-gradient(180deg, #08090d 0%, #0d0f16 45%, #08090d 100%);
+  color: var(--text);
+  font-family:
+    "Aptos Display",
+    "SF Pro Display",
+    "Segoe UI",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  content: "";
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.28;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E");
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(217, 255, 99, 0.28);
+}
+
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(22px);
+}
+
+.soft-border {
+  border: 1px solid var(--line);
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: translateX(-120%);
+  animation: shine 5.4s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%,
+  62% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(217, 255, 99, 0.28);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(217, 255, 99, 0);
+  }
+}
