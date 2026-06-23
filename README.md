@@ -28,15 +28,6 @@ ClaimGuardAI/
   tests/test_contract_static.py
 ```
 
-## Builder Program Score Path
-
-| Axis | Target | Evidence |
-|---|---:|---|
-| GenLayer fit | 5 | The claim verdict depends on on-chain web evidence plus LLM reasoning; without it the product becomes a normal claims form. |
-| Contract quality | 4-5 | Explicit state machine, budget safety, deterministic JSON storage, guarded payout, appeal path, and strict validation. |
-| Engineering | 4 | Separate contract, frontend, tests, deploy script, and documented setup. |
-| Frontend / UX | 4 | Next.js app calls the deployed contract through `genlayer-js` and covers policy -> claim -> verdict -> payout. |
-
 ## Contract Flow
 
 1. `create_policy(holder, policy_type, covered_event, evidence_source, premium_amount, payout_amount)`
